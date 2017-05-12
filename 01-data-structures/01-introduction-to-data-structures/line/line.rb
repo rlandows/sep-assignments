@@ -54,16 +54,3 @@ class Line
   end
 
 end
-
-# hello = Line.new.join("harold")
-# Line.new.leave("jake")
-# Line.join("harold")
-
-# the_line = Line.new
-# the_line.join("kumar")
-# the_line.join("tricia")
-# the_line.leave("kevin")
-# the_line.front
-# the_line.middle
-# the_line.back
-# puts the_line.search("tfds")

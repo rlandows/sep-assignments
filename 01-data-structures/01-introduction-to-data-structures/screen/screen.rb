@@ -11,7 +11,7 @@ class Screen
     @hash = Hash.new
   end
 
-  # Insert a Pixel at x, y
+  # Insert a Pixel at x,  y
   def insert(pixel, x, y)
     pixel.x = x
     pixel.y = y

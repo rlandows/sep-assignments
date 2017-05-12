@@ -1,0 +1,8 @@
+1. How does your data structure allow developers to access and manipulate the data?
+The data structure is a Hash that has the (x,y) coordinates in an array as the key and the value is an array containing the pixels with their r,g,b colors and x,y coordinates. Using the provided methods in the class, users can access and manipulate the data easily.
+
+2. If a developer wanted to find a specific element in your data structure, how would you search for it?
+you would use the at method located inside of the Screen class. The method contains 2 parameters (x and y) which are used to search through the hash. If the x,y values match up to a key [x,y] then the method will return the pixel at that key.
+
+3. What other real-world data can each structure represent?
+The Screen could be a map of a city, while the pixel class could contain information on what is at that “pixel”. It could be a house, part of a street, even just grass.

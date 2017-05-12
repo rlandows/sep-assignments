@@ -1,0 +1,9 @@
+How does your data structure allow developers to access and manipulate the data?
+We have a Line class, that allows people to create an empty array. Then they can add members, one at a time to enter the line. These members will be inserted into the array at the index -1.
+
+If a developer wanted to find a specific element in your data structure, how would you search for it?
+
+Using the search method within the Line class will allow users to find a person in line. If the user is not in line, then nil will be returned.
+
+What other real-world data can each structure represent?
+An array can represent many things, one example could be a list of fruits.
