@@ -1,0 +1,13 @@
+1. What is Spatial Locality and why does it benefit performance?
+
+Spatial locality is a characteristic of how programs access data. In order to be this, the  items being referenced are close in space to each other, like in an Array. There is a large benefit in this because all the items are located nearby and are able to be located by their indices, which provides for good performance.
+
+2. Compare the time it takes to create a 10,000 item Array to appending 10,000 items to a Linked List.
+
+For a 10,000 item array, the time it takes to create is 0.002599. To append 10,000 node items to a linked list, it takes 1.840839 seconds.
+
+To search for the 5000th index in the array, it takes 0.000085 seconds, while searching for it in the Linked List takes 0.000333 seconds.
+
+To delete at the 5000th index in the array, it takes 0.000048 seconds. Deleting the 5000th node in a Linked List takes 0.000193 seconds.
+
+Overall we can see that array’s are much faster in performance, however they take up much more memory.
