@@ -1,0 +1,3 @@
+1.Explain why doubling the size of the underlying array of your HashClass may be a poor idea.
+
+As I was testing errors within my program, I noticed that in the spec file the first key-value pair and the third key-value pair had the same modulo value of 5 for when the array size was 6 and when the array doubled to 12. This would mean that the index would be the same and another doubling would have to occur. It seems that an approach of using prime numbers would be more efficient as explained in the bloc lesson and would allow for less array size increases to occur.
