@@ -1,0 +1,20 @@
+1.Describe three collision resolution strategies not mentioned here.
+
+2-choice hashing: This strategy involves 2 different hash functions that each compute the location of where to insert the object. Whichever location has less objects in it is the location that will be chosen to insert this object.
+
+Cuckoo Hashing: This strategy involves 2 different hash functions that select different locations for an object. We put the object into the 1st hash functions designated location, if it’s empty. If it is full , we place it into the second functions designated location. If both are full, then we place it into the first function’s location, then repeat this process with the object that we just swapped with. We can set a load factor to tell us when we want to resize the hash, so that it does not get too full.
+
+Hopscotch Hashing: This implementation involves arrays being grouped into neighborhoods. Each entry is given an index that it belongs too (similarly to the way we gave indices in open_addressing and separate_chaining). From there we search for an empty index to put the object into. Then we begin to swap with values until we can get into the neighborhood of that index. If we cannot get into that neighborhood than we will resize the array and re-insert all the items into the array.
+
+
+2. Create your own collision resolution strategy and describe how it works.
+
+Robmetric Hashing:
+-Starting with two functions, one begins on index 0 and the other on the last index.
+
+-if index 0 is empty, the object is inserted there
+
+-if index 0 is not empty, but the last index is, then the item inserted their.
+
+-if both indices are full, then they both shift, function 1 to the right and function two to the left.
+-if all indices are full then, we resize and start the whole process over.
