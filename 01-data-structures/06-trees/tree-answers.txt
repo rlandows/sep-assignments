@@ -1,0 +1,28 @@
+1. Print both Trees to the console and compare the difference between your Binary Search Tree and your Heap.
+
+What I see with the values as they are printed onto the console is that with the binary search tree you see a range of numbers begin to spread since you begin with one number and then all the numbers to the right are larger and all the numbers to the left are smaller. With the min heap, you begin with the smallest number and the numbers gradually get larger.
+
+2.Insert all numbers from 1 to 1000 into both Trees, then use Benchmark to compare performance:
+Insert:
+#<BinarySearchTree:0x007fe18c02cd38>
+  0.080000   0.000000   0.080000 (  0.078602)
+
+
+BinaryHeap:
+ 0.220000   0.020000   0.240000 (  0.247135)
+
+Find:
+#<BinarySearchTree:0x007f9bbd070c28>
+  0.090000   0.000000   0.090000 (  0.096451)
+
+BinaryHeap:
+ 0.000000   0.000000   0.000000 (  0.000216)
+
+Delete:
+#<BinarySearchTree:0x007f9790884aa8>
+  0.090000   0.000000   0.090000 (  0.090339)
+
+BinaryHeap:
+ 0.000000   0.000000   0.000000 (  0.000192)
+
+I did my searches for sets of 1000. What was interesting was that it took significantly more time for the heap to insert its values, however once they were in it was faster to find and delete them.
