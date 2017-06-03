@@ -1,7 +1,7 @@
 require_relative "Node"
 
-  $films = []
-  $actors = []
+$films = []
+$actors = []
 def find_kevin_bacon(node,start)
   $actors << start.name
 
