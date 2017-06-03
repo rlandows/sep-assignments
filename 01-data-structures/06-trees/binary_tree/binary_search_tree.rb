@@ -99,7 +99,35 @@ class BinarySearchTree
 
     end
 
+    # found_node = nil
+    #
+    # if root.nil?
+    #   if root.rating == data.rating
+    #     found_node = data
+    #   elsif root.rating > data.rating
+    #     found_node = self.find(root.left, data)
+    #   else
+    #     found_node = self.find(root.right, data)
+    #   end
+    # end
+    #
+    # found_node
 
+    # found_node = nil
+    #
+    # if root.nil?
+    #   if root.rating == data.rating
+    #     found_node = data
+    #   else
+    #     found_node = self.find(root.left, data)
+    # 
+    #     if found_node.nil?
+    #       found_node = self.find(root.right, data)
+    #     end
+    #   end
+    # end
+    #
+    # found_node
   end
 
   def delete(root, data)

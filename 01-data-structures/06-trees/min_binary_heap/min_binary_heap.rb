@@ -18,7 +18,7 @@ def insert(root,data)
       item.left = data
       data.parent = item
       @stack = [@root]
-       break
+      break
     elsif item.right == nil
       item.right = data
       data.parent = item
@@ -35,61 +35,57 @@ def insert(root,data)
   if data.parent.rating != nil
     until data.parent == nil || data.parent.rating < data.rating
       # puts data.parent.rating
-    if data.parent.rating > data.rating
-      temp_parent = data.parent.parent
-      temp_holder = data.parent
-      if data.parent.left == data
-        if data.parent.right != nil
-          data.parent.right.parent = data
-        end
-        temp_left = data.left
-        temp_right = data.right
-        data.left = data.parent
-        data.right = data.parent.right
+      if data.parent.rating > data.rating
+        temp_parent = data.parent.parent
+        temp_holder = data.parent
 
-        data.parent.left = temp_left
-        data.parent.right = temp_right
-        data.parent.parent = data
-        data.parent = temp_parent
-        if temp_parent != nil
-          if temp_parent.left == temp_holder
-            temp_parent.left = data
-          elsif temp_parent.right == temp_holder
-            temp_parent.right = data
+        if data.parent.left == data
+          if data.parent.right != nil
+            data.parent.right.parent = data
+          end
+
+          temp_left = data.left
+          temp_right = data.right
+          data.left = data.parent
+          data.right = data.parent.right
+
+          data.parent.left = temp_left
+          data.parent.right = temp_right
+          data.parent.parent = data
+          data.parent = temp_parent
+
+          if temp_parent != nil
+            if temp_parent.left == temp_holder
+              temp_parent.left = data
+            elsif temp_parent.right == temp_holder
+              temp_parent.right = data
+            end
+          end
+        elsif data.parent.right == data
+          if data.parent.left != nil
+            data.parent.left.parent = data
+          end
+
+          temp_left = data.left
+          temp_right = data.right
+          data.right = data.parent
+          data.left = data.parent.left
+
+          data.parent.left = temp_left
+          data.parent.right = temp_right
+          data.parent.parent = data
+          data.parent = temp_parent
+
+          if temp_parent != nil
+            if temp_parent.left == temp_holder
+              temp_parent.left = data
+            elsif temp_parent.right == temp_holder
+              temp_parent.right = data
+            end
           end
         end
-
-
-      elsif data.parent.right == data
-        if data.parent.left != nil
-          data.parent.left.parent = data
-        end
-        temp_left = data.left
-        temp_right = data.right
-        data.right = data.parent
-        data.left = data.parent.left
-
-        data.parent.left = temp_left
-        data.parent.right = temp_right
-        data.parent.parent = data
-        data.parent = temp_parent
-
-        if temp_parent != nil
-          if temp_parent.left == temp_holder
-            temp_parent.left = data
-          elsif temp_parent.right == temp_holder
-            temp_parent.right = data
-          end
-        end
-
       end
     end
-
-    end
-
-
-
-
   end
 
   if data.parent == nil
@@ -143,6 +139,7 @@ def delete(root,data)
         counter += 1
         if item.left != nil && item.right == nil
           item.left.parent = item.parent
+
           if item.parent.left == item
             item.parent.left = item.left
           elsif item.parent.right == item
@@ -150,6 +147,7 @@ def delete(root,data)
           end
         elsif item.right != nil && item.left == nil
           item.right.parent = item.parent
+
           if item.parent.left == item
             item.parent.left = item.right
           elsif item.parent.right == item
@@ -176,18 +174,11 @@ def delete(root,data)
 
             insert(root,item)
           end
-
-
         end
       end
     end
   end
 
-  if counter == 0
-    @stack = [@root]
-    @the_rest = []
-    return "Sorry, we could not find #{data.title}"
-  end
 
   @stack = [@root]
   @the_rest = []
