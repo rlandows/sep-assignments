@@ -4,65 +4,40 @@ $films = []
 $actors = []
 def find_kevin_bacon(node,start)
   $actors << start.name
+  movie_titles = node.film_actor_hash.keys
 
-  if start.name == "Kevin Bacon"
+  if node == start
     return $films
   end
 
-  if $films.include?(:"Footloose")
-    $films = $films.uniq
-    final_film = []
-    index = $films.index(:"Footloose")
-
-    if $films.length > 6
-      return "Sorry, this actor is more than 6 degrees from Kevin Bacon"
-    else
-      $films.each_with_index do |film, idx|
-        if idx <= index
-          final_film << film
-        end
-      end
+  movie_titles.each do |movie|
+    if start.film_actor_hash.keys.include?(movie)
+      $films << movie
+      result = find_kevin_bacon(node, node)
+      return films_length if result
     end
-      return "You are #{final_film.length} degrees away from Kevin Bacon. This is the list of movies taken to connect to Kevin Bacon: \n#{final_film}"
   end
 
-  if start.name != "Kevin Bacon"
-    start.film_actor_hash.each do |movie,actors|
-      if actors.include?(node)
-        $films << movie
-        return "Degree of 1. You must have been in Footloose"
-      end
-    end
-
-
-    start.film_actor_hash.each do |movie, actors|
-      if $films.include?(movie) == false
-        actors.each do |act|
-          if $actors.include?(act) == false
-            $films << movie
-              find_kevin_bacon(node,act)
-          end
+  start.film_actor_hash.each do |movie,actors|
+    if $films.include?(movie) == false
+      $films << movie
+      actors.each do |actor|
+        if $actors.include?(actor) == false
+          result = find_kevin_bacon(node,actor)
+          return films_length if result
         end
       end
     end
   end
-
-  $films = $films.uniq
-  final_film = []
-  index = $films.index(:"Footloose")
-
-  if $films.length > 6
-    return "Sorry, this actor is more than 6 degrees from Kevin Bacon"
-  else
-    $films.each_with_index do |film, idx|
-      if idx <= index
-        final_film << film
-      end
-    end
-  end
-    return "You are #{final_film.length} degrees away from Kevin Bacon. This is the list of movies taken to connect to Kevin Bacon: \n#{final_film}"
 end
 
+def films_length
+  if $films.length < 7
+    return "This actor is #{$films.length} degrees away from Kevin Bacon. Here are the films:\n#{$films}"
+  elsif $films.length > 6
+    return "This actor is more than 6 degrees away from Kevin Bacon!"
+  end
+end
 
 lori_singer = Node.new("Lori Singer", {})
 dianne_west = Node.new("Dianne West", {})
@@ -116,6 +91,7 @@ nicole_kidman.film_actor_hash = {"Lion":[dev_patel],"Bewitched":[will_ferrell]}
 will_ferrell.film_actor_hash = {"Bewitched":[nicole_kidman]}
 
 
-puts find_kevin_bacon(kevin_bacon,jake_gyllenhall) #3 degrees from bacon
+# puts find_kevin_bacon(kevin_bacon,lori_singer) #3 degrees from bacon
 # puts find_kevin_bacon(kevin_bacon,olivia_newton_john) #more than 6
 # puts find_kevin_bacon(kevin_bacon,will_ferrell) #6 degrees from bacon
+puts find_kevin_bacon(kevin_bacon,bruce_abbott)
