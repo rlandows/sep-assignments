@@ -34,7 +34,7 @@ end
 def films_length
   if $films.length < 7
     return "This actor is #{$films.length} degrees away from Kevin Bacon. Here are the films:\n#{$films}"
-  elsif $films.length > 6
+  else
     return "This actor is more than 6 degrees away from Kevin Bacon!"
   end
 end
